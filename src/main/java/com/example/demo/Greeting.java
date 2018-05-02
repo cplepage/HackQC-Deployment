@@ -26,4 +26,6 @@ public class Greeting {
     public String getContent() {
         return content;
     }
+
+    public String getLastname() { return lastname; }
 }
