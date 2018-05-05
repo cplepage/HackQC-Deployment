@@ -1,12 +1,14 @@
-package hackqc18.Acclimate;
+package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AcclimateApplication {
+public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AcclimateApplication.class, args);
+
+		SpringApplication.run(DemoApplication.class, args);
 	}
+
 }
