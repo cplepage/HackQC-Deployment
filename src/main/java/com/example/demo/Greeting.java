@@ -7,7 +7,6 @@ public class Greeting {
     private final int annee;
     private final String lastname;
 
-
     public Greeting(long id, String content, int annee, String lastname) {
         this.id = id;
         this.content = content;
@@ -26,6 +25,4 @@ public class Greeting {
     public String getContent() {
         return content;
     }
-
-    public String getLastname() { return lastname; }
 }
