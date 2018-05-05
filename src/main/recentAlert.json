@@ -17,4 +17,6 @@
 { "type" : "Feature", "risque" : "inondation", "geometry" : { "type" : "Point", "coordinates" : [32.5,74.3] }}
 ,
 { "type" : "Feature", "risque" : "inondation", "geometry" : { "type" : "Point", "coordinates" : [32.5,74.3] }}
+,
+{ "type" : "Feature", "risque" : "dekoi", "geometry" : { "type" : "Point", "coordinates" : [78.4,57.3] }}
 ]
