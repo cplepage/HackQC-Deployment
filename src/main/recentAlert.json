@@ -1,0 +1,20 @@
+[
+  { "type" : "Feature",
+    "risque" : "inondation",
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [32.5,74.3]
+    }
+  },
+  { "type" : "Feature",
+    "risque" : "inondation",
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [32.5,74.3]
+    }
+  }
+,
+{ "type" : "Feature", "risque" : "inondation", "geometry" : { "type" : "Point", "coordinates" : [32.5,74.3] }}
+,
+{ "type" : "Feature", "risque" : "inondation", "geometry" : { "type" : "Point", "coordinates" : [32.5,74.3] }}
+]
