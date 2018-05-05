@@ -19,7 +19,7 @@ public class putAlert {
             f.setLength(length+1);
             f.close();
 
-            String str = "{ \"type\" : \"Feature\", \"risque\" : \"" + type + "\", \"geometry\" : { \"type\" : \"Point\", \"coordinates\" : [" + coordinates[0] + "," + coordinates[1] + "] }}";
+            String str = "{ \"type\" : \"Feature\", \"risque\" : \"" + type + "\", \"geometry\" : { \"type\" : \"Point\", \"coordinates\" : [" + coordinates[1] + "," + coordinates[0] + "] }}";
             BufferedWriter writer = null;
             writer = new BufferedWriter(new FileWriter("src/main/recentAlert.json", true));
             writer.append(",\n");
