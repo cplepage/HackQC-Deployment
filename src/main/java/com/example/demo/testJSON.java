@@ -2,31 +2,37 @@ package com.example.demo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonRawValue;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.charset.Charset;
+import org.apache.commons.io.IOUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class testJSON {
 
     JSONObject file;
 
-    public testJSON(){
+    public testJSON() throws JSONException {
+        this.file = getContent("https://cplepage.com/hackQC/resultat.json");
+
+    }
+
+    public JSONObject getContent(String url) throws JSONException {
         try {
-            Resource resource = new ClassPathResource("test-risque.json");
-            JSONParser parser = new JSONParser();
-            //Use JSONObject for simple JSON and JSONArray for array of JSON.
-            JSONObject data = (JSONObject) parser.parse(
-                    new FileReader(resource.getFile()));//path to the JSON file.
-            this.file = data;
-        } catch (IOException | ParseException e) {
+            return new JSONObject(IOUtils.toString(new URL(url), Charset.forName("UTF-8")));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
+        return new JSONObject("failed");
     }
 
     @JsonRawValue
