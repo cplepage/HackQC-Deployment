@@ -13,11 +13,10 @@ public class PutAlert {
         return new ArrayList<>(USER_ALERTS);
     }
 
-    public PutAlert(String type, double lat, double lng, String date) {
+    public PutAlert(String type, String latGet, String lngGet, String date) {
         this.status = false;
-        double tmp = lat;
-        lat = lng;
-        lng = tmp;
+        double lat = Double.parseDouble(lngGet);
+        double lng = Double.parseDouble(latGet);
 
 
         if (lat > -84 && lat < -58 && lng > 40 && lng < 66) {
