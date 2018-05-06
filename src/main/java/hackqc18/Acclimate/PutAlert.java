@@ -19,37 +19,37 @@ public class PutAlert {
         double lng = Double.parseDouble(latGet);
 
 
-        if (lat > -84 && lat < -58 && lng > 40 && lng < 66) {
+//        if (lat > -84 && lat < -58 && lng > 40 && lng < 66) {
             
 //            String userAlrId = (int)distanceInMeter(-84, lng, lat, lng) + "-"
 //                    + (int)distanceInMeter(lat, 66, lat, lng);
 //
-            for (Alerte alerte : USER_ALERTS) {
+//            for (Alerte alerte : USER_ALERTS) {
 //                if (alerte.getIdAlerte().equals(userAlrId)) {
 //                    alerte.increment(lat, lng, date);
 //                    this.status = true;
 //                    this.statusMsg = "Alerte comfirmée, merci de votre participation!";
 //                    return;
 //                }
-                // TODO - for demo the delay is set à 0 days, 0 hours, 5 minutes
-                if (alerte.isOlderThan(0, 0, 5)) {
-                    USER_ALERTS.remove(alerte);
-                }
-                    
-            }
+//                // TODO - for demo the delay is set à 0 days, 0 hours, 5 minutes
+//                if (alerte.isOlderThan(0, 0, 5)) {
+//                    USER_ALERTS.remove(alerte);
+//                }
+//
+//            }
             
             PointJSON point = new PointJSON(lat, lng);
             Alerte alerte = new Alerte(type, "usager", "inconnu",
-                    "à déterminer", "inconnue", type, date, "2", "inconnue",
+                    "à déterminer", "inconnue", type, date, "inconnu", "inconnue",
                     "alerte usager", point.toString(), point.getCoord());
             
             USER_ALERTS.add(alerte);
             
             this.status = true;
             this.statusMsg = "Nouvelle alerte ajoutée. Merci pour votre aide!";
-        } else {
-            this.statusMsg = "Coordonnées non supportées pour le moment.";
-        }
+//        } else {
+//            this.statusMsg = "Coordonnées non supportées pour le moment.";
+//        }
 
     }
 
