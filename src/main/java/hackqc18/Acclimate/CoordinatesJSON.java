@@ -17,6 +17,10 @@ public class CoordinatesJSON {
         data.add(new double[]{x, y});
     }
 
+    public ArrayList<double[]> getData() {
+        return data;
+    }
+
 
     @Override
     public String toString() {

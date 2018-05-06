@@ -59,9 +59,10 @@ public class AlertesFluxRss {
             this.coordX.add(x);
             this.coordY.add(y);
 
+            PointJSON point = new PointJSON(x, y);
             alertes.add(new Alerte(nom, source, territoire,
                     certitude, severite, type, dateDeMiseAJour, "00000", urgence,
-                    description, new PointJSON(x, y).toString()));
+                    description, point.toString(), point.getCoord()));
         }
 
     }
@@ -122,7 +123,7 @@ public class AlertesFluxRss {
 
     public ArrayList<Alerte> alertsInBox(double nord, double sud, double est, double ouest) {
 
-        if (ouest <= -84 && est >= -58 && sud > 40 && nord < 63) {
+        if (ouest <= -84 || est >= -58 || sud <= 40 || nord >= 66) {
             return new ArrayList<>(alertes);
         }
 

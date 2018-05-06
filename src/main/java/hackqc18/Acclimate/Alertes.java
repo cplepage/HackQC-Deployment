@@ -7,27 +7,25 @@ public class Alertes {
     private ArrayList<Alerte> alertes;
 
     public Alertes(double nord, double sud, double est, double ouest) {
-        
         alertes = AlertesFluxRss.theInstance().alertsInBox(nord, sud, est, ouest);
-        
-//        PointJSON point = new PointJSON(latitude + 2, longitude + 3);
-//        PointJSON point2 = new PointJSON(latitude - 2, longitude - 3);
-//        ArrayList<double[]> theArray = new ArrayList<double[]>();
-//        theArray.add(new double[]{latitude + 4,longitude + 4});
-//        theArray.add(new double[]{latitude + 4,longitude - 4});
-//        theArray.add(new double[]{latitude - 4,longitude + 4});
-//        theArray.add(new double[]{latitude - 4,longitude - 4});
-//        PolygonJSON point3 = new PolygonJSON(theArray);
+    }
 
-//        alertes.add(new Alerte("innondation", "le gouvernement", "Montréal",
-//                "certain", "grave", "innondation", "1978-05-04", "00001", "urgent",
-//                "on coule!", point.toString()));
-//        alertes.add(new Alerte("innondation", "le gouvernement", "Montréal",
-//                "certain", "grave", "innondation", "1978-05-04", "00001", "urgent",
-//                "on coule!", point2.toString()));
-//        alertes.add(new Alerte("innondation", "le gouvernement", "Montréal",
-//                "certain", "grave", "innondation", "1978-05-04", "00001", "urgent",
-//                "on coule!", point3.toString()));
+    public Alertes(double nord, double sud, double est, double ouest,
+            ArrayList<Alerte> userAlerts) {
+        if (ouest <= -84 || est >= -58 || sud <= 40 || nord >= 66) {
+            this.alertes =  new ArrayList<>(userAlerts);
+        }
+
+        this.alertes =  new ArrayList<>();
+        for (Alerte e : userAlerts) {
+            ArrayList<double[]> coord = e.getCoord().getData();
+            if (coord.get(0)[0] > ouest && coord.get(0)[0] < est
+                    && coord.get(0)[1] > sud && coord.get(0)[1] < nord) {
+                this.alertes.add(e);
+            }
+                
+        }
+        
     }
 
     public ArrayList<Alerte> getAlertes() {

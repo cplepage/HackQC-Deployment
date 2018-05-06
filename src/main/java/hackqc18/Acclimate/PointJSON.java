@@ -7,6 +7,9 @@ public class PointJSON {
         coordinates = new CoordinatesJSON(x, y);
     }
     
+    public CoordinatesJSON getCoord() {
+        return coordinates;
+    }
     
     @Override
     public String toString() {
