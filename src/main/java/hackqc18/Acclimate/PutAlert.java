@@ -16,10 +16,10 @@ public class PutAlert {
     public PutAlert(String type, double lat, double lng, String date) {
         this.status = false;
 
-        if (lat > -84 && lat < -58 && lng > 40 && lng < 66) {
+        if (lng > -84 && lng < -58 && lat > 40 && lat < 66) {
             
-            String userAlrId = (int)distanceInMeter(-84, lng, lat, lng) + "-"
-                    + (int)distanceInMeter(lat, 66, lat, lng);
+            String userAlrId = (int)distanceInMeter(lat, -84, lat, lng) + "-"
+                    + (int)distanceInMeter(66, lng, lat, lng);
             
             for (Alerte alerte : USER_ALERTS) {
                 if (alerte.getIdAlerte().equals(userAlrId)) {
