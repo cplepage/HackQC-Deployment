@@ -14,7 +14,7 @@ public class PutAlert {
     }
 
     public PutAlert(String type, double lat, double lng, String date) {
-        status = false;
+        this.status = false;
 
         if (lat > -84 && lat < -58 && lng > 40 && lng < 66) {
             
@@ -24,8 +24,8 @@ public class PutAlert {
             for (Alerte alerte : USER_ALERTS) {
                 if (alerte.getIdAlerte().equals(userAlrId)) {
                     alerte.increment(lat, lng, date);
-                    status = true;
-                    statusMsg = "Alerte comfirmée, merci de votre participation!";
+                    this.status = true;
+                    this.statusMsg = "Alerte comfirmée, merci de votre participation!";
                     return;
                 }
                 // TODO - for demo the delay is set à 0 days, 0 hours, 5 minutes
@@ -43,9 +43,9 @@ public class PutAlert {
             USER_ALERTS.add(alerte);
             
             this.status = true;
-            statusMsg = "Nouvelle alerte ajoutée. Merci pour votre aide!";
+            this.statusMsg = "Nouvelle alerte ajoutée. Merci pour votre aide!";
         } else {
-            statusMsg = "Coordonnées non supportées pour le moment.";
+            this.statusMsg = "Coordonnées non supportées pour le moment.";
         }
 
     }
@@ -63,8 +63,8 @@ public class PutAlert {
         return d * 1000; // meters
     }
 
-    public boolean isStatus() {
-        return status;
+    public String isStatus() {
+        return this.statusMsg;
     }
 
 }
