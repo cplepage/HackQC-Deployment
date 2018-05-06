@@ -14,9 +14,8 @@ public class PutAlertController {
     public @ResponseBody String putAlertController(
             @RequestParam(value = "type") String type,
             @RequestParam(value = "lat") String lat,
-            @RequestParam(value = "lng") String lng,
-            @RequestParam(value = "date") String date
+            @RequestParam(value = "lng") String lng
     ) throws IOException {
-        return new PutAlert(type, lat, lng, date).isStatus();
+        return new PutAlert(type, lat, lng).isStatus();
     }
 }
