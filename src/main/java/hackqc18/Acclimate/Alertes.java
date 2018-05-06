@@ -34,6 +34,7 @@ public class Alertes {
 
     @Override
     public String toString() {
+        if (alertes.isEmpty()) return "{\"alertes\" : []}";
         String result = "{\n\"alertes\": [";
 
         for (int i = 0; i < alertes.size() - 1; i++) {
